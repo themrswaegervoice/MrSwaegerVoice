@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MrSwaeger Voice – German Voice Actor</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0c0a08;
+  --bg2: #111009;
+  --ember: #c8681a;
+  --gold: #d4a853;
+  --gold-dim: #8a6830;
+  --text: #ede4d4;
+  --text-dim: #8a7a62;
+  --text-faint: #4a4030;
+  --line: rgba(200,104,26,0.18);
+  --ash: #1c1810;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* Grain */
+body::before {
+  content:'';
+  position:fixed; inset:0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events:none; z-index:1000; opacity:0.8;
+}
+
+/* Ambient glow */
+.glow-top {
+  position:fixed; top:-30vh; left:50%; transform:translateX(-50%);
+  width:120vw; height:80vh;
+  background: radial-gradient(ellipse at center top, rgba(200,104,26,0.07) 0%, transparent 65%);
+  pointer-events:none; z-index:0;
+}
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:500;
+  padding: 1.4rem 3rem;
+  display:flex; align-items:center; justify-content:space-between;
+  background: linear-gradient(to bottom, rgba(12,10,8,0.98) 50%, transparent);
+  opacity:0; animation: fadeDown 1s ease forwards 0.2s;
+}
+
+.nav-logo {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.35em;
+  color: var(--ember);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.nav-links {
+  display:flex; gap:2.5rem; list-style:none;
+}
+
+.nav-links a {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  color: var(--text-dim);
+  text-decoration:none;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--ember); }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center;
+  padding: 8rem 2rem 4rem;
+  position:relative; z-index:10;
+}
+
+.hero-tag {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.5em;
+  color: var(--ember);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  opacity:0; animation: fadeUp 1s ease forwards 0.5s;
+}
+
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-weight: 700;
+  line-height: 0.95;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  opacity:0; animation: fadeUp 1s ease forwards 0.7s;
+}
+
+.hero-name em {
+  font-style: italic;
+  color: var(--ember);
+}
+
+.hero-sub {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 3vw, 1.4rem);
+  font-style: italic;
+  color: var(--text-dim);
+  max-width: 520px;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  opacity:0; animation: fadeUp 1s ease forwards 0.9s;
+}
+
+.hero-divider {
+  width: 80px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ember), transparent);
+  margin: 0 auto 3rem;
+  opacity:0; animation: fadeUp 1s ease forwards 1.1s;
+}
+
+.hero-qualities {
+  display:flex; gap:3rem; align-items:center;
+  margin-bottom: 3.5rem;
+  opacity:0; animation: fadeUp 1s ease forwards 1.2s;
+}
+
+.quality {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--text-faint);
+  text-transform: uppercase;
+}
+
+.quality-dot {
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: var(--ember);
+  opacity: 0.5;
+}
+
+.hero-cta {
+  display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;
+  opacity:0; animation: fadeUp 1s ease forwards 1.4s;
+}
+
+.btn-primary {
+  background: var(--ember);
+  color: #0c0a08;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex; align-items:center; gap:0.6rem;
+  transition: all 0.3s ease;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+.btn-primary:hover {
+  background: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(200,104,26,0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-dim);
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex; align-items:center; gap:0.6rem;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  border-color: rgba(200,104,26,0.5);
+  color: var(--text);
+}
+
+.scroll-hint {
+  position:absolute; bottom: 2.5rem; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:0.5rem;
+  opacity:0; animation: fadeUp 1s ease forwards 2s;
+}
+
+.scroll-line {
+  width:1px; height:50px;
+  background: linear-gradient(to bottom, var(--ember), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+.scroll-label {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  color: var(--text-faint);
+  text-transform: uppercase;
+}
+
+@keyframes scrollPulse {
+  0%,100%{opacity:0.4} 50%{opacity:1}
+}
+
+/* ── SECTION BASE ── */
+section {
+  position:relative; z-index:10;
+  padding: 6rem 2rem;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.45em;
+  color: var(--ember);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display:flex; align-items:center; gap:1rem;
+}
+
+.section-label::after {
+  content:'';
+  flex:1; height:1px;
+  background: linear-gradient(to right, var(--line), transparent);
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.section-title em { font-style:italic; color: var(--ember); }
+
+/* ── DEMOS ── */
+#demos { background: var(--bg2); }
+
+.demo-intro {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-dim);
+  max-width: 600px;
+  margin-bottom: 3rem;
+}
+
+.demo-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.demo-card {
+  background: var(--bg2);
+  padding: 2rem;
+  transition: background 0.3s;
+}
+
+.demo-card:hover { background: var(--ash); }
+
+.demo-format {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.35em;
+  color: var(--ember);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.demo-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.demo-desc {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+.demo-player {
+  display:flex; align-items:center; gap:0.8rem;
+}
+
+.play-btn {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,104,26,0.4);
+  background: transparent;
+  color: var(--ember);
+  cursor: pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-size: 0.8rem;
+  transition: all 0.3s;
+  flex-shrink:0;
+}
+
+.play-btn:hover {
+  background: var(--ember);
+  color: #0c0a08;
+  border-color: var(--ember);
+}
+
+.play-btn.playing {
+  background: var(--ember);
+  color: #0c0a08;
+}
+
+.audio-bar {
+  flex:1; height:2px;
+  background: var(--line);
+  position:relative; overflow:hidden; cursor:pointer;
+}
+
+.audio-progress {
+  height:100%;
+  background: var(--ember);
+  width:0%;
+  transition: width 0.1s linear;
+}
+
+.audio-time {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  color: var(--text-faint);
+  min-width: 35px;
+  text-align:right;
+}
+
+/* ── WHAT I DO ── */
+#services { background: var(--bg); }
+
+.services-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.service-item {
+  border-top: 1px solid var(--line);
+  padding-top: 1.2rem;
+}
+
+.service-num {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  color: var(--ember);
+  letter-spacing: 0.2em;
+  margin-bottom: 0.8rem;
+}
+
+.service-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.service-desc {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+
+/* ── PRICING ── */
+#pricing { background: var(--bg2); }
+
+.pricing-intro {
+  font-size: 1.05rem;
+  color: var(--text-dim);
+  line-height: 1.8;
+  max-width: 600px;
+  margin-bottom: 3rem;
+}
+
+.pricing-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-bottom: 1.5rem;
+}
+
+.price-card {
+  background: var(--bg2);
+  padding: 1.8rem 1.5rem;
+  transition: background 0.3s;
+  position:relative;
+}
+
+.price-card:hover { background: var(--ash); }
+
+.price-card.featured {
+  background: var(--ash);
+}
+
+.price-card.featured::before {
+  content: 'EMPFOHLEN';
+  position:absolute; top:0; right:0;
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.5rem;
+  letter-spacing:0.2em;
+  color: #0c0a08;
+  background: var(--ember);
+  padding: 0.25rem 0.6rem;
+}
+
+.price-duration {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+
+.price-amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--ember);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.price-unit {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  color: var(--text-faint);
+  letter-spacing: 0.2em;
+  margin-bottom: 0.8rem;
+}
+
+.price-includes {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.pricing-note {
+  font-size: 0.85rem;
+  color: var(--text-faint);
+  font-style: italic;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+/* ── QUOTE ── */
+#quote-section {
+  background: var(--bg);
+  padding: 5rem 2rem;
+}
+
+.big-quote {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align:center;
+}
+
+.quote-mark {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  line-height: 0.5;
+  color: var(--ember);
+  opacity: 0.3;
+  margin-bottom: 1rem;
+}
+
+.quote-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.3rem, 3.5vw, 2rem);
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.quote-attr {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  color: var(--ember);
+  text-transform: uppercase;
+}
+
+/* ── CONTACT ── */
+#contact { background: var(--bg2); }
+
+.contact-grid {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 2.5rem;
+}
+
+.contact-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+  font-weight:400;
+}
+
+.contact-info p {
+  font-size: 1rem;
+  color: var(--text-dim);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.contact-details {
+  display:flex; flex-direction:column; gap:0.8rem;
+}
+
+.contact-line {
+  display:flex; align-items:center; gap:1rem;
+}
+
+.contact-label {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  color: var(--ember);
+  text-transform: uppercase;
+  min-width: 80px;
+}
+
+.contact-value {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-value:hover { color: var(--text); }
+
+/* Contact form */
+.contact-form {
+  display:flex; flex-direction:column; gap:1rem;
+}
+
+.form-field {
+  display:flex; flex-direction:column; gap:0.4rem;
+}
+
+.form-label {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  color: var(--ember);
+  text-transform: uppercase;
+}
+
+.form-input, .form-select, .form-textarea {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-family: 'Crimson Pro', serif;
+  font-size: 1rem;
+  padding: 0.8rem 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+  width:100%;
+}
+
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: rgba(200,104,26,0.5);
+}
+
+.form-select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-input::placeholder, .form-textarea::placeholder {
+  color: var(--text-faint);
+}
+
+/* ── FOOTER ── */
+footer {
+  position:relative; z-index:10;
+  padding: 2.5rem 3rem;
+  border-top: 1px solid var(--line);
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap:1rem;
+}
+
+.footer-copy {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--text-faint);
+}
+
+.footer-links {
+  display:flex; gap:2rem;
+}
+
+.footer-links a {
+  font-family: 'Courier Prime', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--text-faint);
+  text-decoration:none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover { color: var(--ember); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(16px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity:0; transform:translateY(-10px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+.reveal {
+  opacity:0; transform:translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 1.2rem 1.5rem; }
+  .nav-links { display:none; }
+  section { padding: 4rem 1.5rem; }
+  .contact-grid { grid-template-columns: 1fr; gap:2.5rem; }
+  footer { padding:1.5rem; }
+  .hero-qualities { gap:1.5rem; flex-wrap:wrap; justify-content:center; }
+}
+</style>
+</head>
+<body>
+
+<div class="glow-top"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">MrSwaeger Voice</a>
+  <ul class="nav-links">
+    <li><a href="#demos">Demos</a></li>
+    <li><a href="#services">Leistungen</a></li>
+    <li><a href="#pricing">Preise</a></li>
+    <li><a href="#contact">Anfrage</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-tag">German Voice Actor · Sprecher · Erzähler</div>
+  <h1 class="hero-name">MrSwaeger<br><em>Voice</em></h1>
+  <p class="hero-sub">Eine Stimme, die nicht nur spricht —<br>sondern trägt. Ruhig. Tief. Unverwechselbar.</p>
+  <div class="hero-divider"></div>
+  <div class="hero-qualities">
+    <span class="quality">Studio Quality</span>
+    <span class="quality-dot"></span>
+    <span class="quality">24–48h Lieferung</span>
+    <span class="quality-dot"></span>
+    <span class="quality">Remote weltweit</span>
+    <span class="quality-dot"></span>
+    <span class="quality">WAV · MP3</span>
+  </div>
+  <div class="hero-cta">
+    <a href="#demos" class="btn-primary">▶ &nbsp;Demos anhören</a>
+    <a href="#contact" class="btn-outline">Projekt anfragen</a>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <span class="scroll-label">Scroll</span>
+  </div>
+</section>
+
+<!-- DEMOS -->
+<section id="demos">
+  <div class="container">
+    <div class="section-label reveal">Hörproben</div>
+    <h2 class="section-title reveal">Meine <em>Stimme</em> —<br>in vier Formaten.</h2>
+    <p class="demo-intro reveal">Jedes Format hat seinen eigenen Charakter. Hör rein — und finde die Variante, die zu deinem Projekt passt.</p>
+
+    <div class="demo-grid reveal">
+
+      <div class="demo-card">
+        <div class="demo-format">Hörspiel · Lesung</div>
+        <div class="demo-title">Erzählerisch</div>
+        <div class="demo-desc">Atmosphärisch, nah, mit literarischer Tiefe. Für Hörbücher, Hörspiele und narrative Formate.</div>
+        <div class="demo-player">
+          <button class="play-btn" onclick="togglePlay(this, 'https://www.mrswaeger.de/wp-content/uploads/2026/02/MrSwaeger_Demo_2_Hoerspiel_Lesung.mp3')">▶</button>
+          <div class="audio-bar" onclick="seekAudio(event, this)">
+            <div class="audio-progress"></div>
+          </div>
+          <span class="audio-time">0:00</span>
+        </div>
+      </div>
+
+      <div class="demo-card">
+        <div class="demo-format">Literarische Lesung</div>
+        <div class="demo-title">Literarisch</div>
+        <div class="demo-desc">Ruhig, präzise, mit Gewicht. Für anspruchsvolle Texte die gehört — nicht nur gelesen — werden wollen.</div>
+        <div class="demo-player">
+          <button class="play-btn" onclick="togglePlay(this, 'https://www.mrswaeger.de/wp-content/uploads/2026/02/MrSwaeger_Demo_1_Literarische_Lesung.mp3')">▶</button>
+          <div class="audio-bar" onclick="seekAudio(event, this)">
+            <div class="audio-progress"></div>
+          </div>
+          <span class="audio-time">0:00</span>
+        </div>
+      </div>
+
+      <div class="demo-card">
+        <div class="demo-format">Imagefilm · Corporate</div>
+        <div class="demo-title">Korporativ</div>
+        <div class="demo-desc">Vertrauenswürdig, klar, mit Haltung. Für Imagefilme, Unternehmenskommunikation und E-Learning.</div>
+        <div class="demo-player">
+          <button class="play-btn" onclick="togglePlay(this, 'https://www.mrswaeger.de/wp-content/uploads/2026/02/MrSwaeger_Demo_Imagefilm_Corporate.mp3')">▶</button>
+          <div class="audio-bar" onclick="seekAudio(event, this)">
+            <div class="audio-progress"></div>
+          </div>
+          <span class="audio-time">0:00</span>
+        </div>
+      </div>
+
+      <div class="demo-card">
+        <div class="demo-format">Werbespot</div>
+        <div class="demo-title">Werbung</div>
+        <div class="demo-desc">Prägnant, überzeugend, mit Charakter. Für Spots, Trailer, Social-Media-Formate.</div>
+        <div class="demo-player">
+          <button class="play-btn" onclick="togglePlay(this, 'https://www.mrswaeger.de/wp-content/uploads/2026/02/MrSwaeger_Demo_Klassischer_Werbespot.mp3')">▶</button>
+          <div class="audio-bar" onclick="seekAudio(event, this)">
+            <div class="audio-progress"></div>
+          </div>
+          <span class="audio-time">0:00</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-label reveal">Leistungen</div>
+    <h2 class="section-title reveal">Was ich für<br><em>dein Projekt</em> tue.</h2>
+
+    <div class="services-grid reveal">
+      <div class="service-item">
+        <div class="service-num">01</div>
+        <div class="service-name">E-Learning & Narration</div>
+        <div class="service-desc">Klare, verständliche Sprachführung für digitale Lernformate. Ruhig genug um zu erklären — lebendig genug um zu halten.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">02</div>
+        <div class="service-name">Imagefilm & Corporate</div>
+        <div class="service-desc">Vertrauenswürdige Stimme für Unternehmenspräsentationen, Erklärvideos und interne Kommunikation.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">03</div>
+        <div class="service-name">Hörbuch & Hörspiel</div>
+        <div class="service-desc">Erzählerische Tiefe für literarische Stoffe. Charakterstarke Stimme für Rollen und Narration.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">04</div>
+        <div class="service-name">Trailer & Intros</div>
+        <div class="service-desc">Atmosphärisch, cineastisch, prägnant. Für Podcast-Intros, Trailer und Social-Media-Formate.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">05</div>
+        <div class="service-name">Awareness & NGO</div>
+        <div class="service-desc">Empathisch, klar, glaubwürdig. Für sensible Themen die Haltung brauchen — nicht nur Information.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">06</div>
+        <div class="service-name">Individuelle Projekte</div>
+        <div class="service-desc">Kein Standard-Auftrag passt? Ich bin offen für kreative Anfragen. Schreib mir — wir finden eine Lösung.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="section-label reveal">Preise</div>
+    <h2 class="section-title reveal">Transparent.<br><em>Fair. Klar.</em></h2>
+    <p class="pricing-intro reveal">Alle Preise verstehen sich als Richtwerte für Standardprojekte. Kommerzielle Nutzung, Exklusivrechte und größere Produktionen werden individuell kalkuliert.</p>
+
+    <div class="pricing-grid reveal">
+      <div class="price-card">
+        <div class="price-duration">10 – 30 Sek.</div>
+        <div class="price-amount">120€</div>
+        <div class="price-unit">pro Clip</div>
+        <div class="price-includes">Trailer · Intro · Social Media · Spot</div>
+      </div>
+      <div class="price-card featured">
+        <div class="price-duration">1 – 3 Min.</div>
+        <div class="price-amount">280€</div>
+        <div class="price-unit">pro Clip</div>
+        <div class="price-includes">E-Learning · Imagefilm · Erklärformat · Narration</div>
+      </div>
+      <div class="price-card">
+        <div class="price-duration">3 – 10 Min.</div>
+        <div class="price-amount">480€</div>
+        <div class="price-unit">pro Clip</div>
+        <div class="price-includes">Dokumentation · Hörbuchkapitel · Corporate</div>
+      </div>
+      <div class="price-card">
+        <div class="price-duration">Individuell</div>
+        <div class="price-amount">auf Anfrage</div>
+        <div class="price-unit">&nbsp;</div>
+        <div class="price-includes">Großprojekte · Serien · Exklusivrechte · NGO-Sonderpreise</div>
+      </div>
+    </div>
+
+    <p class="pricing-note reveal">Lieferung als saubere WAV- oder MP3-Datei · Bearbeitungszeit 24–48 Stunden · Revisionen inklusive</p>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section id="quote-section">
+  <div class="big-quote reveal">
+    <div class="quote-mark">"</div>
+    <p class="quote-text">Eine Stimme ist mehr als Klang —<br>sie ist ein Herzschlag, der hörbar wird.</p>
+    <div class="quote-attr">Tom Schwager · MrSwaeger Voice</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label reveal">Kontakt</div>
+    <h2 class="section-title reveal">Lass uns über<br><em>dein Projekt</em> sprechen.</h2>
+
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>Direkt & unkompliziert.</h3>
+        <p>Beschreib mir kurz dein Projekt — Format, Länge, Stilrichtung. Ich melde mich innerhalb von 24 Stunden mit einem konkreten Angebot.</p>
+        <div class="contact-details">
+          <div class="contact-line">
+            <span class="contact-label">E-Mail</span>
+            <a href="mailto:mrswaeger@gmail.com" class="contact-value">mrswaeger@gmail.com</a>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">Website</span>
+            <a href="https://www.mrswaeger.de" target="_blank" class="contact-value">www.mrswaeger.de</a>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">Patreon</span>
+            <a href="https://www.patreon.com/MrSwaegermeets" target="_blank" class="contact-value">patreon.com/MrSwaegermeets</a>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/tom-mrswaeger-834360211" target="_blank" class="contact-value">Tom MrSwaeger</a>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">TikTok</span>
+            <a href="https://www.tiktok.com/@mrswaegermeets" target="_blank" class="contact-value">@mrswaegermeets</a>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" onsubmit="submitForm(event)">
+        <div class="form-field">
+          <label class="form-label">Name</label>
+          <input type="text" class="form-input" placeholder="Dein Name oder Unternehmen" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label">E-Mail</label>
+          <input type="email" class="form-input" placeholder="deine@email.com" required>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Format</label>
+          <select class="form-select form-input">
+            <option value="" disabled selected>Welches Format brauchst du?</option>
+            <option>E-Learning / Narration</option>
+            <option>Imagefilm / Corporate</option>
+            <option>Hörbuch / Hörspiel</option>
+            <option>Trailer / Intro / Spot</option>
+            <option>Awareness / NGO</option>
+            <option>Individuell / Sonstiges</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Dein Projekt</label>
+          <textarea class="form-textarea" placeholder="Kurze Beschreibung — Länge, Stil, Deadline …" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">
+          Anfrage senden →
+        </button>
+        <p id="form-msg" style="font-size:0.85rem; color:var(--ember); text-align:center; min-height:1.2rem;"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-copy">© 2026 Tom Schwager · MrSwaeger Voice · Alle Rechte vorbehalten</span>
+  <div class="footer-links">
+    <a href="https://www.mrswaeger.de/impressum/">Impressum</a>
+    <a href="https://www.patreon.com/MrSwaegermeets" target="_blank">Patreon</a>
+    <a href="https://www.tiktok.com/@mrswaegermeets" target="_blank">TikTok</a>
+  </div>
+</footer>
+
+<script>
+// ── AUDIO PLAYER ──────────────────────────────────────────────────────────
+let currentAudio = null;
+let currentBtn = null;
+let animFrame = null;
+
+function togglePlay(btn, src) {
+  const card = btn.closest('.demo-card');
+  const progress = card.querySelector('.audio-progress');
+  const timeEl = card.querySelector('.audio-time');
+
+  if (currentAudio && currentBtn === btn) {
+    if (currentAudio.paused) {
+      currentAudio.play();
+      btn.textContent = '⏸';
+      btn.classList.add('playing');
+      startProgress(currentAudio, progress, timeEl);
+    } else {
+      currentAudio.pause();
+      btn.textContent = '▶';
+      btn.classList.remove('playing');
+      cancelAnimationFrame(animFrame);
+    }
+    return;
+  }
+
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    if (currentBtn) {
+      currentBtn.textContent = '▶';
+      currentBtn.classList.remove('playing');
+    }
+    cancelAnimationFrame(animFrame);
+    const prevCard = currentBtn?.closest('.demo-card');
+    if (prevCard) {
+      prevCard.querySelector('.audio-progress').style.width = '0%';
+      prevCard.querySelector('.audio-time').textContent = '0:00';
+    }
+  }
+
+  currentAudio = new Audio(src);
+  currentBtn = btn;
+
+  currentAudio.play().then(() => {
+    btn.textContent = '⏸';
+    btn.classList.add('playing');
+    startProgress(currentAudio, progress, timeEl);
+  }).catch(() => {
+    btn.textContent = '▶';
+  });
+
+  currentAudio.addEventListener('ended', () => {
+    btn.textContent = '▶';
+    btn.classList.remove('playing');
+    progress.style.width = '0%';
+    timeEl.textContent = '0:00';
+    currentAudio = null;
+    currentBtn = null;
+    cancelAnimationFrame(animFrame);
+  });
+}
+
+function startProgress(audio, bar, timeEl) {
+  function update() {
+    if (!audio || audio.paused) return;
+    const pct = (audio.currentTime / audio.duration) * 100 || 0;
+    bar.style.width = pct + '%';
+    const mins = Math.floor(audio.currentTime / 60);
+    const secs = Math.floor(audio.currentTime % 60).toString().padStart(2,'0');
+    timeEl.textContent = `${mins}:${secs}`;
+    animFrame = requestAnimationFrame(update);
+  }
+  animFrame = requestAnimationFrame(update);
+}
+
+function seekAudio(e, bar) {
+  if (!currentAudio) return;
+  const rect = bar.getBoundingClientRect();
+  const pct = (e.clientX - rect.left) / rect.width;
+  currentAudio.currentTime = pct * currentAudio.duration;
+}
+
+// ── REVEAL ON SCROLL ──────────────────────────────────────────────────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ── FORM ──────────────────────────────────────────────────────────────────
+function submitForm(e) {
+  e.preventDefault();
+  const msg = document.getElementById('form-msg');
+  msg.textContent = 'Vielen Dank — ich melde mich innerhalb von 24 Stunden.';
+  setTimeout(() => { msg.textContent = ''; e.target.reset(); }, 4000);
+  // In production: connect to Formspree, Netlify Forms, or EmailJS
+}
+</script>
+</body>
+</html>
